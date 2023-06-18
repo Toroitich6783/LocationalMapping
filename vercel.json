@@ -8,7 +8,7 @@
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "poject/wsgi.py"
+            "dest": "MappingPoject/wsgi.py"
         }
     ]
 }
