@@ -1,0 +1,1067 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title> Welcome to Babylonia Care</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <link rel="stylesheet" href="static/popupstyle.css">
+
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="static/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="static/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="static/style.css" rel="stylesheet">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+<link rel="stylesheet" href="static/style.css">
+<link href="static/Overallstyle.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+	<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
+
+
+  <link href="static/mobilesetting.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+	<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+<style>
+    #searchInput1{
+        width: 145px;
+    }
+
+
+    
+        table {
+            border-collapse: collapse;
+            width: 10%;
+          }
+          th, td {
+            padding: 8px;
+            border: 1px solid #ddd;
+            font-size: 10px;
+    
+          }
+          th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+          }
+          tr:nth-child(even) {
+            background-color: #f9f9f9;
+          }
+          .table-container {
+            max-height: 412px;
+            overflow-y: scroll;
+          }
+    
+</style>
+
+  
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow border-top border-5 border-dark sticky-top p-0">
+        <a href="{% url 'map' %}" class="navbar-brand bg-light d-flex align-items-center px-4 px-lg-5">
+            <div class="logo-and-name">
+                <img src="static/img/v3 tran.png" alt="Company Logo">
+                <h1 class="company-name" style="margin-top:50px;">Babylonia Care</h1>
+              </div>        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="{% url 'map' %}" class="nav-item nav-link active">Home</a>
+
+                <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
+                <a href="{% url 'service' %}" class="nav-item nav-link">Products</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Others</a>
+                    <div class="dropdown-menu fade-up m-0">
+                      <!-- <a href="MappingClients.html" class="dropdown-item">Map Clients</a>
+                      <a href="ecomClients.html" class="dropdown-item">Client Location</a>
+                      <a href="Datamanagement.html" class="dropdown-item">Data Management</a> -->
+                      <!-- <a href="price.html" class="dropdown-item">Pricing Plan</a> -->
+                      <a href="{% url 'feature' %}" class="dropdown-item">Features</a>
+                      <a href="{% url 'team' %}" class="dropdown-item">Our Team</a>
+                      <a href="{% url 'testimonial' %}" class="dropdown-item">Testimonial</a>
+                      <!-- <a href="404.html" class="dropdown-item">404 Page</a> -->
+                        
+                    </div>
+                </div>
+                <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
+            </div>
+            <h4 class="m-0 pe-lg-5 d-none d-lg-block"> <a href="https://www.instagram.com/"><i class="fab fa-instagram text-success me-3"></i>@Babyloniacare</a></h4>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+    
+    <div class="rightsidebar"> 
+
+      <div id="mapid">
+
+      </div>
+  </div>
+
+
+
+
+    <div class="filter">
+      <!-- <label for="searchInput">Search Tier Level:</label> -->
+      <!-- <input type="text" id="searchInput" oninput="filterItems()" placeholder="search Tier Level...">
+      <button type="button" onclick="clearInput()">Clear</button> -->
+    </div>
+  
+    <div class="items">
+      <div class="item"><a href="{% url 'Goldclients' %}">Gold</a></div>
+      <div class="item"><a href="{% url 'SilverClients' %}">Silver</a></div>
+      <div class="item"><a href="{% url 'BasicClient' %}">Basic</a></div>
+    </div>
+  
+    <script>
+      function filterItems() {
+        var searchInput = document.getElementById('searchInput');
+        var inputValue = searchInput.value.toLowerCase();
+  
+        var items = document.getElementsByClassName('item');
+        var matchFound = false;
+  
+        for (var i = 0; i < items.length; i++) {
+          var item = items[i];
+          var itemText = item.textContent.toLowerCase();
+          var matchSearch = inputValue === '' || itemText.indexOf(inputValue) !== -1;
+  
+          if (matchSearch) {
+            matchFound = true;
+            break;
+          }
+        }
+  
+        if (!matchFound) {
+          searchInput.value = inputValue;
+        }
+      }
+  
+      function clearInput() {
+        document.getElementById('searchInput').value = '';
+      }
+  
+      function handleKeyPress(event) {
+        if (event.keyCode === 13) { // 13 is the code for Enter key
+          var searchInput = document.getElementById('searchInput').value.toLowerCase();
+          var items = document.getElementsByClassName('item');
+  
+          for (var i = 0; i < items.length; i++) {
+            var item = items[i];
+            var itemText = item.textContent.toLowerCase();
+  
+            if (searchInput === itemText) {
+              window.location.href = item.firstChild.href; // Redirect to the matched URL
+              document.getElementById('searchInput').value = ''; // Clear the search input
+              break;
+            }
+          }
+        }
+      }
+      
+  
+      // Add event listener for keydown event
+      document.getElementById('searchInput').addEventListener('keydown', handleKeyPress);
+    </script>
+
+
+
+
+  <!-- Filter  for Art Style -->
+
+  <div class="filter1">
+    <!-- <label for="searchInput1">Search Artist Sytle:</label> -->
+    <input type="text" id="searchInput1"  oninput="filterItems1()" placeholder="Search by Artist Sytle...">
+    <button type="button" onclick="clearInput()">Clear</button>
+  </div>
+
+  <div class="items1">
+    <div class="item1"><a href="{% url 'Traditional' %}">Traditional</a></div>    
+    <div class="item1"><a href="{% url 'Realism' %}">Realism</a></div>
+    <div class="item1"><a href="{% url 'Japanese' %}">Japanese</a></div>
+    <div class="item1"><a href="{% url 'Neo_Traditional' %}">Neo-Traditional</a></div>
+    <div class="item1"><a href="{% url 'Black_Gray' %}">Black-Gray</a></div>
+    <div class="item1"><a href="{% url 'Watercolor' %}">Watercolor</a></div>
+    <div class="item1"><a href="{% url 'Minimalist' %}">Minimalist</a></div>
+
+  </div>
+
+  <script>
+    function filterItems1() {
+      var searchInput1 = document.getElementById('searchInput1');
+      var inputValue1 = searchInput1.value.toLowerCase();
+
+      var items1 = document.getElementsByClassName('item1');
+      var matchFound1 = false;
+
+      for (var i = 0; i < items1.length; i++) {
+        var item1 = items1[i];
+        var itemText1 = item1.textContent.toLowerCase();
+        var matchSearch1 = inputValue1 === '' || itemText1.indexOf(inputValue1) !== -1;
+
+        if (matchSearch1) {
+          matchFound1 = true;
+          break;
+        }
+      }
+
+      if (!matchFound1) {
+        searchInput1.value = inputValue1;
+      }
+    }
+
+    function clearInput() {
+      document.getElementById('searchInput1').value = '';
+    }
+
+    function handleKeyPress(event) {
+      if (event.keyCode === 13) { // 13 is the code for Enter key
+        var searchInput1 = document.getElementById('searchInput1').value.toLowerCase();
+        var items1 = document.getElementsByClassName('item1');
+
+        for (var i = 0; i < items1.length; i++) {
+          var item1 = items1[i];
+          var itemText1 = item1.textContent.toLowerCase();
+
+          if (searchInput1 === itemText1) {
+            window.location.href = item1.firstChild.href; // Redirect to the matched URL
+            document.getElementById('searchInput1').value = ''; // Clear the search input
+            break;
+          }
+        }
+      }
+    }
+
+    // Add event listener for keydown event
+    document.getElementById('searchInput1').addEventListener('keydown', handleKeyPress);
+  </script>
+   
+  <div class ="leftsidebar">
+    <!-- <p class="Extra">Tier Level Present</p>
+    <div class="Tierlevel1">
+    &#10004; Gold<br>
+    &#10004; Silver <br>
+    &#10004; Basic<br>
+    </div> -->
+    <br>
+    <br>
+    <p class="Extra">Artist Sytle Present</p>
+    <div class="artist_style1">
+      &#10004; Traditional<br>
+      &#10004; Realism <br>
+      &#10004; Japanese<br>
+      &#10004; Neo_Traditional<br>
+      &#10004; Black_Gray <br>
+      &#10004; Watercolor<br>
+      &#10004; Minimalist<br>
+      </div>
+
+      <p class="Extra">Watercolor Artist</p>
+      <div class="table-container">
+        <table id="contact-table">
+          <thead>
+            <tr>
+              <th>Artist Name</th>
+              <th>Instagram</th>
+              <th>Tier Level</th>
+            </tr>
+          </thead>
+          <tbody id="table-body"></tbody>
+        </table>
+      </div>
+    
+      <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyD0asHo0qDj5zYplavVzFUsNWL1Da1e1c8",
+            authDomain: "sendinfo-9f1cb.firebaseapp.com",
+            databaseURL: "https://sendinfo-9f1cb-default-rtdb.firebaseio.com",
+            projectId: "sendinfo-9f1cb",
+            storageBucket: "sendinfo-9f1cb.appspot.com",
+            messagingSenderId: "842821060420",
+            appId: "1:842821060420:web:47008a44a86e78be69b911"
+        };
+        firebase.initializeApp(firebaseConfig);
+    
+        var database = firebase.database().ref('contactForm');
+    
+        database.once('value', function(snapshot) {
+          var tableBody = document.getElementById('table-body');
+    
+          var goldRows = [];
+          var silverRows = [];
+          var basicRows = [];
+    
+          snapshot.forEach(function(childSnapshot) {
+            var childData = childSnapshot.val();
+            var name = childData.name;
+            var Instagram = childData.Instagram1;
+            var tierLevel = childData.Tiers1;
+            var artstyle2 = childData.Artist_sytle1;
+    
+            var instagramLink = '<a style="color:green;" href="' + Instagram + '">' + Instagram + '</a>';
+    
+            // Filter records based on art style
+            if (artstyle2 === 'Watercolor') {
+              var tableRow = document.createElement('tr');
+              tableRow.innerHTML = '<td>' + name + '</td>' +
+                                   '<td>' + instagramLink + '</td>' +
+                                   '<td>' + tierLevel + '</td>';
+    
+              // Store rows based on tier level
+              if (tierLevel === 'Gold') {
+                goldRows.push(tableRow);
+              } else if (tierLevel === 'Silver') {
+                silverRows.push(tableRow);
+              } else if (tierLevel === 'Basic') {
+                basicRows.push(tableRow);
+              }
+            }
+          });
+    
+          // Append rows to the table in the desired order: Gold, Silver, Basic
+          goldRows.forEach(function(row) {
+            tableBody.appendChild(row);
+          });
+          silverRows.forEach(function(row) {
+            tableBody.appendChild(row);
+          });
+          basicRows.forEach(function(row) {
+            tableBody.appendChild(row);
+          });
+        });
+      </script>
+
+        <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="service-item p-4">
+                
+                <a class="btn-slide mt-2" href="{% url 'Watercolorclients' %}"><i class="fa fa-arrow-right"></i><span>Expand</span></a>
+            </div>
+        </div>
+      </div>
+    
+
+  <script>
+  
+    button.onclick = function () {
+     var red = Math.floor(Math.random() * 256);
+     var blue = Math.floor(Math.random() * 256);
+     var green = Math.floor(Math.random() * 256);
+    
+     this.style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
+    };
+    </script>
+
+    <script>
+        var map = L.map('mapid').setView([27.9701,-15.5956], 11);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            id: 'osm.streets'
+        }).addTo(map);
+
+        L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+			maxZoom: 20,
+			subdomains:['mt0','mt1','mt2','mt3'],
+		}).addTo(map);
+    
+
+        L.Control.geocoder({
+			defaultMarkGeocode: false,
+			position: 'topleft',
+			placeholder: 'Search...',
+			collapsed: true,
+			showResultIcons: true,
+			showPopup: false
+		}).on('markgeocode', function(e) {
+			map.flyTo(e.geocode.center, 13);
+		}).addTo(map);
+    
+    // Add drawing tools control
+    var drawnItems = new L.FeatureGroup();
+    map.addLayer(drawnItems);
+
+    var drawControl = new L.Control.Draw({
+      draw: {
+        polygon: true,
+        marker: true,
+        circle: false, // Disable circles
+        rectangle: false // Disable rectangles
+        // Add other available options as needed
+      },
+      edit: {
+        featureGroup: drawnItems
+      }
+    });
+    map.addControl(drawControl);
+
+    map.on('draw:created', function(e) {
+      var layer = e.layer;
+      drawnItems.addLayer(layer);
+    });
+    var osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+    });
+    // Create satellite imagery layer
+    var satelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+      maxZoom: 18,
+    }).addTo(map);;
+
+    // Create Layer Groups
+    var markerGroup = L.layerGroup().addTo(map);
+
+    // Create Layers Control
+    var baseMaps = {
+     
+        "OpenStreetMap": osmLayer,
+      "Satellite Imagery": satelliteLayer,
+    }
+
+    L.control.layers(baseMaps).addTo(map);
+
+
+
+  var database = firebase.database().ref('contactForm');
+
+  // Read all data from Firebase
+  database.once('value', function (snapshot) {
+    snapshot.forEach(function (childSnapshot) {
+      var childData = childSnapshot.val();
+      var lat = childData.latitude1;
+      var lng = childData.longitude1;
+      var name = childData.name;
+      var emailid= childData.email;
+      var Phone_Number =childData.Phone_Number1;
+      var Facebook= childData.Facebook1;
+      var Instagram=childData.Instagram1;
+      var imageURL =childData.imageUrl;
+      var Tiers =childData.Tiers1;
+      var message1 =childData.message;
+      var Artist_sytle =childData.Artist_sytle1;
+      var Address1 =childData.Address1;
+    var Address1 =childData.Address1;
+
+
+
+   // Check if the Tiers value is 'gold'
+   if (Artist_sytle === 'Watercolor') {
+
+    // Process the data for gold tiers
+    // ...
+
+
+
+
+      // Add marker with bindPopup
+      L.marker([lat, lng]).addTo(map)
+      .bindPopup('<img src="' + imageURL + '" alt="Marker Image" class="popupimg"><br>' +
+      '<h1 class="popup1">Artist Name:</h1><p class="popup2">' + name + '</p><br>' +
+      '<h3 class="popup1" >Email:</h3><p class="popup2">' + emailid + '</p><br>' +
+      '<h3 class="popup1" >Phone Number:</h3><p class="popup2">' + Phone_Number + '</p><br>' +
+      '<h3 class="popup1" >Address:</h3><p class="popup2">' + Address1 + '</p><br>' +
+      '<h3 class="popup1" >Tier Level:</h3><p class="popup2">' + Tiers + '</p><br>' +
+      '<h3 class="popup1" >Artist_sytle:</h3><p class="popup2">' + Artist_sytle + '</p><br>' +
+      '<h3 class="popup1" >Facebook:</h3><p class="popup2"><a href="' + Facebook + '">' + Facebook + '</a></p><br>' +
+      '<h3 class="popup1" >Instagram:</h3><p class="popup2"><a href="' + Instagram + '">' + Instagram + '</a></p> <br>'+
+      '<h3 class="popup1" >About:</h3><p class="popup2">' + message1 + '</p><br>');
+  }
+   });
+  });
+
+        
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="static/js/scripts.js"></script>
+
+
+ <!-- Carousel Start -->
+<div class="background">
+
+ <div class="container-fluid p-0 pb-5">
+  <div class="owl-carousel header-carousel position-relative mb-5">
+      <div class="owl-carousel-item position-relative">
+          <img class="img-fluid" src="static/img/wallpaper5.jpg" alt="">
+          <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(6, 3, 21, .5);">
+              <div class="container">
+                  <div class="row justify-content-start">
+                      <div class="col-10 col-lg-8">
+                          <h5 class="text-white text-uppercase mb-3 animated slideInDown">@ Babylonia Care Tattoo Studio</h5>
+                          <h1 class="display-3 text-white animated slideInDown mb-4">#1 Best Tattoo studio <span class="text-primary">Transforming Ideas</span> into Reality</h1>
+                          <p class="fs-5 fw-medium text-white mb-4 pb-2">Where Artistry and Personal Style Collide</p>
+                          <a href="{% url 'Signup' %}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Sign Up</a>
+                          <a href="{% url 'login' %}" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Log In</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="owl-carousel-item position-relative">
+          <img class="img-fluid" src="static/img/wallpaper6.jpg" alt="">
+          <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(6, 3, 21, .5);">
+              <div class="container">
+                  <div class="row justify-content-start">
+                      <div class="col-10 col-lg-8">
+                          <h5 class="text-white text-uppercase mb-3 animated slideInDown">@ Babylonia Care Tattoo Studio</h5>
+                          <h1 class="display-3 text-white animated slideInDown mb-4">#1 Best Tattoo studio <span class="text-primary">Transforming Ideas</span> into Reality</h1>
+                          <p class="fs-5 fw-medium text-white mb-4 pb-2">Where Artistry and Personal Style Collide</p>
+                          <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Sign Up</a>
+                          <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Log In</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+
+<!-- Carousel End -->
+
+
+<!-- About Start -->
+<div class="container-fluid overflow-hidden py-5 px-lg-0">
+  <div class="container about py-5 px-lg-0">
+      <div class="row g-5 mx-lg-0">
+          <div class="col-lg-6 ps-lg-0 wow fadeInLeft" data-wow-delay="0.1s" style="min-height: 400px;">
+              <div class="position-relative h-100">
+                  <img class="position-absolute img-fluid w-100 h-100" src="static/img/wallpaper3.jpg" style="object-fit: cover;" alt="">
+              </div>
+          </div>
+          <div class="col-lg-6 about-text wow fadeInUp" data-wow-delay="0.3s">
+              <h6 class="text-secondary text-uppercase mb-3">About Us</h6>
+              <h1 class="mb-5">Bold Ink, Endless Stories</h1>
+              <p class="mb-5">Bold Ink, Endless Stories: Where Your Skin Becomes a Living Canvas, Each Tattoo Unveiling a Unique Tale of Courage, Passion, and Identity.</p>
+              <div class="row g-4 mb-5">
+                  <div class="col-sm-6 wow fadeIn" data-wow-delay="0.5s">
+                      <i class="fa fa-pen-fancy fa-3x text-primary mb-3"></i>
+                      <h5>Premium Ink</h5>
+                      <p class="m-0">Premium Ink: Exceptional, top-tier tattoo pigments that deliver vibrant, long-lasting, and highly-detailed artwork.</p>
+                  </div>
+                  <div class="col-sm-6 wow fadeIn" data-wow-delay="0.7s">
+                      <i class="fa fa-hand-holding-usd fa-3x text-primary mb-3"></i>
+                      <h5>Affordable</h5>
+                      <p class="m-0">Accessible and Affordable Tattoos: Bringing Quality Artistry within Reach for Every Ink Enthusiast.</p>
+                  </div>
+              </div>
+              <a href="" class="btn btn-primary py-3 px-5">Explore More</a>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- About End -->
+
+
+<!-- Fact Start -->
+<div class="container-xxl py-5">
+  <div class="container py-5">
+      <div class="row g-5">
+          <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+              <h6 class="text-secondary text-uppercase mb-3">Some Facts</h6>
+              <h1 class="mb-5">#1 Place where inner artistry flourishes, redefining self-expression with every stroke of ink.</h1>
+              <p class="mb-5">This a creative haven where individuals can cultivate their inner artistry, pushing the boundaries of self-expression through the transformative power of each tattooed stroke.</p>
+              <div class="d-flex align-items-center">
+                  <i class="fa fa-headphones fa-2x flex-shrink-0 bg-Danger p-3 text-white"></i>
+                  <div class="ps-4">
+                      <h6>Reach Out for any query!</h6>
+                      <h3 class="text-primary m-0">@Babyloniacare</h3>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-6">
+              <div class="row g-4 align-items-center">
+                  <div class="col-sm-6">
+                      <div class="bg-primary p-4 mb-4 wow fadeIn" data-wow-delay="0.3s">
+                          <i class="fa fa-smile-wink fa-2x text-white mb-3"></i>
+                          <h2 class="text-white mb-2" data-toggle="counter-up">1234</h2>
+                          <p class="text-white mb-0">Happy Clients</p>
+                      </div>
+                      <div class="bg-secondary p-4 wow fadeIn" data-wow-delay="0.5s">
+                          <i class="fa fa-users fa-2x text-white mb-3"></i>
+                          <h2 class="text-white mb-2" data-toggle="counter-up">1234</h2>
+                          <p class="text-white mb-0">Recorded Clients</p>
+                      </div>
+                  </div>
+                  <div class="col-sm-6">
+                      <div class="bg-success p-4 wow fadeIn" data-wow-delay="0.7s">
+                          <i class="fa fa-star fa-2x text-white mb-3"></i>
+                          <h2 class="text-white mb-2" data-toggle="counter-up">1234</h2>
+                          <p class="text-white mb-0">Customer Reviews</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- Fact End -->
+
+
+<!-- Service Start -->
+<div class="container-xxl py-5">
+  <div class="container py-5">
+      <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+          <h6 class="text-secondary text-uppercase">Our Products</h6>
+          <h1 class="mb-5">Explore Our Products</h1>
+      </div>
+      <div class="row g-4">
+          <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+              <div class="service-item p-4">
+                  <div class="overflow-hidden mb-4">
+                      <img class="img-fluid" src="static/img/japaneseTat.jpg" alt="">
+                  </div>
+                  <h4 class="mb-3">Japanese Tattoos</h4>
+                  <p>Japanese Tattoo: An Ancient Art Form Transcending Time, Symbolism, and Mastery.</p>
+                  <a class="btn-slide mt-2" href=""><i class="fa fa-arrow-right"></i><span>Read More</span></a>
+              </div>
+          </div>
+          <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
+              <div class="service-item p-4">
+                  <div class="overflow-hidden mb-4">
+                      <img class="img-fluid" src="static/img/TraditionalTat2.jpg" alt="">
+                  </div>
+                  <h4 class="mb-3">Traditional Tattoos</h4>
+                  <p>Traditional Tatto:Timeless art form, rooted in culture, passed down through generations.</p>
+                  <a class="btn-slide mt-2" href=""><i class="fa fa-arrow-right"></i><span>Read More</span></a>
+              </div>
+          </div>
+          <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.7s">
+              <div class="service-item p-4">
+                  <div class="overflow-hidden mb-4">
+                      <img class="img-fluid" src="static/img/RealismTat.PNG" alt="">
+                  </div>
+                  <h4 class="mb-3">Realism Tattoos</h4>
+                  <p>Realism Tattoos: Lifelike artistry etched on skin, capturing the essence of reality with intricate precision.</p>
+                  <a class="btn-slide mt-2" href=""><i class="fa fa-arrow-right"></i><span>Read More</span></a>
+              </div>
+          </div>
+          <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+              <div class="service-item p-4">
+                  <div class="overflow-hidden mb-4">
+                      <img class="img-fluid" src="static/img/NeoTraditional.jpg" alt="">
+                  </div>
+                  <h4 class="mb-3">Neo-Traditional</h4>
+                  <p>
+                      Neo-Traditional Tattoos: Modern twist on traditional style with bold lines and vibrant colors.</p>
+                  <a class="btn-slide mt-2" href=""><i class="fa fa-arrow-right"></i><span>Read More</span></a>
+              </div>
+          </div>
+          <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
+              <div class="service-item p-4">
+                  <div class="overflow-hidden mb-4">
+                      <img class="img-fluid" src="static/img/Black_Graytat.jpeg" alt="">
+                  </div>
+                  <h4 class="mb-3">Black-Gray Tattoos</h4>
+                  <p>Black-Gray Tattoos: A monochromatic style where shades of black create stunning depth and realism in intricate designs.</p>
+                  <a class="btn-slide mt-2" href=""><i class="fa fa-arrow-right"></i><span>Read More</span></a>
+              </div>
+          </div>
+          <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.7s">
+              <div class="service-item p-4">
+                  <div class="overflow-hidden mb-4">
+                      <img class="img-fluid" src="static/img/Watercolortat.jpeg" alt="">
+                  </div>
+                  <h4 class="mb-3">Watercolor Tattoos</h4>
+                  <p>
+                      Watercolor Tattoos: Vibrant and fluid, these artful masterpieces mimic the delicate brushstrokes of watercolor paintings, creating ethereal and captivating body art.</p>
+                  <a class="btn-slide mt-2" href=""><i class="fa fa-arrow-right"></i><span>Read More</span></a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- Service End -->
+
+
+<!-- Feature Start -->
+<!-- <div class="container-fluid overflow-hidden py-5 px-lg-0">
+  <div class="container feature py-5 px-lg-0">
+      <div class="row g-5 mx-lg-0">
+          <div class="col-lg-6 feature-text wow fadeInUp" data-wow-delay="0.1s">
+              <h6 class="text-secondary text-uppercase mb-3">Our Tiers Products</h6>
+              <h1 class="mb-5"> Discover Our Tiers of Ink-credible Products for Tattoos!</h1>
+              <div class="d-flex mb-5 wow fadeInUp" data-wow-delay="0.3s">
+                  <i class="fa fa-medal text-success fa-3x flex-shrink-0"></i>
+                  <div class="ms-4">
+                      <h5>Basic Tier</h5>
+                      <p class="mb-0">Timeless designs with attention to detail, perfect for small and minimalist tattoos.</p>
+                  </div>
+              </div>
+              <div class="d-flex mb-5 wow fadeIn" data-wow-delay="0.5s">
+                  <i class="fa fa-medal text-secondary fa-3x flex-shrink-0"></i>
+                  <div class="ms-4">
+                      <h5>Silver Tier</h5>
+                      <p class="mb-0">Experience elevated Products and personalized attention with our exclusive Silver Tier.</p>
+                  </div>
+              </div>
+              <div class="d-flex mb-0 wow fadeInUp" data-wow-delay="0.7s">
+                  <i class="fa fa-medal text-warning fa-3x flex-shrink-0"></i>
+                  <div class="ms-4">
+                      <h5>Gold Tier</h5>
+                      <p class="mb-0">Unlock the pinnacle of artistic excellence with our prestigious Gold tier Products.</p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-6 pe-lg-0 wow fadeInRight" data-wow-delay="0.1s" style="min-height: 400px;">
+              <div class="position-relative h-100">
+                  <img class="position-absolute img-fluid w-100 h-100" src="img/tiersimg.jpg" style="object-fit: cover;" alt="">
+              </div>
+          </div>
+      </div>
+  </div>
+</div> -->
+<!-- Feature End -->
+
+
+<!-- Pricing Start -->
+<!-- <div class="container-xxl py-5">
+  <div class="container py-5">
+      <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+          <h6 class="text-secondary text-uppercase">Pricing Plan</h6>
+          <h1 class="mb-5">Pricing Plan</h1>
+      </div>
+      <div class="row g-4">
+          <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+              <div class="price-item">
+                  <div class="border-bottom p-4 mb-4">
+                      <h5 class="text-primary mb-1">Basic Plan</h5>
+                      <h1 class="display-5 mb-0">
+                          <small class="align-top" style="font-size: 22px; line-height: 45px;">$</small>49.00</small>
+                      </h1>
+                  </div>
+                  <div class="p-4 pt-0">
+                      <p><i class="fa fa-check text-success me-3"></i>service 1</p>
+                      <p><i class="fa fa-check text-success me-3"></i>service 11</p>
+                      <p><i class="fa fa-check text-success me-3"></i>service 111</p>
+                      <p><i class="fa fa-check text-success me-3"></i>service 1V</p>
+                      <p><i class="fa fa-check text-success me-3"></i>service V</p>
+                      <a class="btn-slide mt-2" href=""><i class="fa fa-arrow-right"></i><span >Order Now</span></a>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
+              <div class="price-item">
+                  <div class="border-bottom p-4 mb-4">
+                      <h5 class="text-primary mb-1">Silver Plan</h5>
+                      <h1 class="display-5 mb-0">
+                          <small class="align-top" style="font-size: 22px; line-height: 45px;">$</small>99.00
+                      </h1>
+                  </div>
+                  <div class="p-4 pt-0">
+                      <p><i class="fa fa-check text-success me-3"></i>service 1</p>
+                      <p><i class="fa fa-check text-success me-3"></i>service 11</p>
+                      <p><i class="fa fa-check text-success me-3"></i>service 111</p>
+                      <p><i class="fa fa-check text-success me-3"></i>service 1V</p>
+                      <p><i class="fa fa-check text-success me-3"></i>service V</p>
+                      <a class="btn-slide mt-2" href=""><i class="fa fa-arrow-right"></i><span >Order Now</span></a>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.7s">
+              <div class="price-item">
+                  <div class="border-bottom p-4 mb-4">
+                      <h5 class="text-primary mb-1">Gold Plan</h5>
+                      <h1 class="display-5 mb-0">
+                          <small class="align-top" style="font-size: 22px; line-height: 45px;">$</small>149.00
+                      </h1>
+                  </div>
+                  <div class="p-4 pt-0">
+                      <p><i class="fa fa-check text-success me-3"></i>service 1</p>
+                      <p><i class="fa fa-check text-success me-3"></i>service 11</p>
+                      <p><i class="fa fa-check text-success me-3"></i>service 111</p>
+                      <p><i class="fa fa-check text-success me-3"></i>service 1V</p>
+                      <p><i class="fa fa-check text-success me-3"></i>service V</p>
+                      <a class="btn-slide mt-2" href=""><i class="fa fa-arrow-right"></i><span >Order Now</span></a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div> -->
+<!-- Pricing End -->
+
+
+
+<!-- Team Start -->
+<div class="container-xxl py-5">
+  <div class="container py-5">
+      <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+          <h6 class="text-secondary text-uppercase">Our Team</h6>
+          <h1 class="mb-5">Expert Team Members</h1>
+      </div>
+      <div class="row g-4">
+          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+              <div class="team-item p-4">
+                  <div class="overflow-hidden mb-4">
+                      <img class="img-fluid" src="static/img/team-1.jpg" alt="">
+                  </div>
+                  <h5 class="mb-0">Full Name</h5>
+                  <p>Designation</p>
+                  <div class="btn-slide mt-1">
+                      <i class="fa fa-share"></i>
+                      <span>
+                          <a href=""><i class="fab fa-facebook-f"></i></a>
+                          <a href=""><i class="fab fa-twitter"></i></a>
+                          <a href=""><i class="fab fa-instagram"></i></a>
+                      </span>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+              <div class="team-item p-4">
+                  <div class="overflow-hidden mb-4">
+                      <img class="img-fluid" src="static/img/team-2.jpg" alt="">
+                  </div>
+                  <h5 class="mb-0">Full Name</h5>
+                  <p>Designation</p>
+                  <div class="btn-slide mt-1">
+                      <i class="fa fa-share"></i>
+                      <span>
+                          <a href=""><i class="fab fa-facebook-f"></i></a>
+                          <a href=""><i class="fab fa-twitter"></i></a>
+                          <a href=""><i class="fab fa-instagram"></i></a>
+                      </span>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+              <div class="team-item p-4">
+                  <div class="overflow-hidden mb-4">
+                      <img class="img-fluid" src="static/img/team-3.jpg" alt="">
+                  </div>
+                  <h5 class="mb-0">Full Name</h5>
+                  <p>Designation</p>
+                  <div class="btn-slide mt-1">
+                      <i class="fa fa-share"></i>
+                      <span>
+                          <a href=""><i class="fab fa-facebook-f"></i></a>
+                          <a href=""><i class="fab fa-twitter"></i></a>
+                          <a href=""><i class="fab fa-instagram"></i></a>
+                      </span>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.9s">
+              <div class="team-item p-4">
+                  <div class="overflow-hidden mb-4">
+                      <img class="img-fluid" src="static/img/team-4.jpg" alt="">
+                  </div>
+                  <h5 class="mb-0">Full Name</h5>
+                  <p>Designation</p>
+                  <div class="btn-slide mt-1">
+                      <i class="fa fa-share"></i>
+                      <span>
+                          <a href=""><i class="fab fa-facebook-f"></i></a>
+                          <a href=""><i class="fab fa-twitter"></i></a>
+                          <a href=""><i class="fab fa-instagram"></i></a>
+                      </span>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- Team End -->
+
+
+<!-- Testimonial Start -->
+<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+  <div class="container py-5">
+      <div class="text-center">
+          <h6 class="text-secondary text-uppercase">Testimonial</h6>
+          <h1 class="mb-0">Our Clients Say!</h1>
+      </div>
+      <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+          <div class="testimonial-item p-4 my-5">
+              <i class="fa fa-quote-right fa-3x text-light position-absolute top-0 end-0 mt-n3 me-4"></i>
+              <div class="d-flex align-items-end mb-4">
+                  <img class="img-fluid flex-shrink-0" src="static/img/testimonial-1.jpg" style="width: 80px; height: 80px;">
+                  <div class="ms-4">
+                      <h5 class="mb-1">Client Name</h5>
+                      <p class="m-0">Profession</p>
+                  </div>
+              </div>
+              <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+          </div>
+          <div class="testimonial-item p-4 my-5">
+              <i class="fa fa-quote-right fa-3x text-light position-absolute top-0 end-0 mt-n3 me-4"></i>
+              <div class="d-flex align-items-end mb-4">
+                  <img class="img-fluid flex-shrink-0" src="static/img/testimonial-2.jpg" style="width: 80px; height: 80px;">
+                  <div class="ms-4">
+                      <h5 class="mb-1">Client Name</h5>
+                      <p class="m-0">Profession</p>
+                  </div>
+              </div>
+              <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+          </div>
+          <div class="testimonial-item p-4 my-5">
+              <i class="fa fa-quote-right fa-3x text-light position-absolute top-0 end-0 mt-n3 me-4"></i>
+              <div class="d-flex align-items-end mb-4">
+                  <img class="img-fluid flex-shrink-0" src="static/img/testimonial-3.jpg" style="width: 80px; height: 80px;">
+                  <div class="ms-4">
+                      <h5 class="mb-1">Client Name</h5>
+                      <p class="m-0">Profession</p>
+                  </div>
+              </div>
+              <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+          </div>
+          <div class="testimonial-item p-4 my-5">
+              <i class="fa fa-quote-right fa-3x text-light position-absolute top-0 end-0 mt-n3 me-4"></i>
+              <div class="d-flex align-items-end mb-4">
+                  <img class="img-fluid flex-shrink-0" src="static/img/testimonial-4.jpg" style="width: 80px; height: 80px;">
+                  <div class="ms-4">
+                      <h5 class="mb-1">Client Name</h5>
+                      <p class="m-0">Profession</p>
+                  </div>
+              </div>
+              <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- Testimonial End -->
+
+
+<!-- Footer Start -->
+<div class="container-fluid bg-dark text-light footer pt-5 wow fadeIn" data-wow-delay="0.1s" style="margin-top: 6rem;">
+  <div class="container py-5">
+      <div class="row g-5">
+          <div class="col-lg-3 col-md-6">
+              <h4 class="text-light mb-4">Address</h4>
+              <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Gran Canaria, Spain</p>
+              <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>@Babyloniacare</p>
+              <p class="mb-2"><i class="fa fa-envelope me-3"></i>Babyloniacare@gmail.com</p>
+              <div class="d-flex pt-2">
+                  <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                  <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                  <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                  <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-7">
+              <h4 class="text-light mb-4">Products</h4>
+              <a class="btn btn-link" href="">Traditional</a>
+              <a class="btn btn-link" href="">Realism</a>
+              <a class="btn btn-link" href="">Neo-Traditional</a>
+              <a class="btn btn-link" href="">Japanese</a>
+              <a class="btn btn-link" href="">Black-Gray</a>
+              <a class="btn btn-link" href="">Watercolor</a>
+
+              
+          </div>
+          <div class="col-lg-3 col-md-6">
+              <h4 class="text-light mb-4">Quick Links</h4>
+              <a class="btn btn-link" href="">About Us</a>
+              <a class="btn btn-link" href="">Contact Us</a>
+              <a class="btn btn-link" href="">Our Products</a>
+              <a class="btn btn-link" href="">Terms & Condition</a>
+              <a class="btn btn-link" href="">Support</a>
+          </div>
+          <div class="col-lg-3 col-md-6">
+              <div class="logo-and-name">
+                  <img src="static/img/v3 tran2.png" alt="Company Logo">
+                  <h1 class="company-name" style="margin-top:50px;">Babylonia Care</h1>
+                </div>    
+              <h4 class="text-light mb-4">Babylonia Care</h4>
+              <p>Best Tattoo studio <span class="text-primary">Transforming Ideas</span> into Reality</p>
+              <div class="position-relative mx-auto" style="max-width: 400px;">
+                  <!-- <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email"> -->
+                  <!-- <button type="button" class="btn btn-light py-2 position-absolute top-0 end-0 mt-2 me-2"><a href="signup.html">Sign Up</a></button> -->
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="container">
+      <div class="copyright">
+          <div class="row">
+              <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                  &copy; <a class="border-bottom" href="#">Babylonia Careme</a>, All Right Reserved.
+              </div>
+              <div class="col-md-6 text-center text-md-end">
+                  <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                  Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- Footer End -->
+
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="static/lib/wow/wow.min.js"></script>
+<script src="static/lib/easing/easing.min.js"></script>
+<script src="static/lib/waypoints/waypoints.min.js"></script>
+<script src="static/lib/counterup/counterup.min.js"></script>
+<script src="static/lib/owlcarousel/owl.carousel.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="static/js/main.js"></script>
+</body>
+
+</html>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+
+.popup1{
+    display:inline;
+    font-weight: bold;
+    font-size:13px
+  }
+
+  .popup2{
+    display:inline;
+    font-size:13px;
+
+  }
+
+.popupimg{
+    max-width:150px;
+     height:auto;
+     border-radius:auto;
+}
+
