@@ -1,14 +1,14 @@
 {
 
     "builds": [{
-        "src": "MappingProject/wsgi.py",
+        "src": "MappingPoject/wsgi.py",
         "use": "@vercel/python",
         "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
     }],
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "MappingProject/wsgi.py"
+            "dest": "MappingPoject/wsgi.py"
         }
     ]
 }
