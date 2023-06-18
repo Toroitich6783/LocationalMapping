@@ -1,0 +1,113 @@
+
+
+/* Mobile CSS Start */
+@media only screen and (max-width: 767px) {
+  
+   
+    .leftsidebar1{
+      background-color:wheat;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      margin-top: 650px;
+  
+      }
+  
+      .rightsidebar1{
+        background-color: #B5179E;
+        width: 99%;
+        float: right;
+        z-index: 0; /* Set the z-index of the map */
+        
+        }
+       
+
+    #mapid1{
+          height: 650px;
+          width: 99%;
+          
+         }
+
+    
+   
+         .leftsidebar{
+            background-color:white;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            margin-top: 480px;
+        
+            }
+        
+            .rightsidebar{
+              background-color: #B5179E;
+              width: 99%;
+              float: right;
+              z-index: 0; /* Set the z-index of the map */
+              
+              }
+             
+      
+          #mapid{
+                height: 520px;
+                width: 99%;
+                
+               }
+  
+
+        .background{
+          position: flex;
+            margin-top: 1300px;
+        }
+            
+        table {
+            border-collapse: collapse;
+            width: 20px;
+            
+          }
+          th, td {
+            padding: 8px;
+            border: 1px solid #ddd;
+            font-size: 10px;
+    
+          }
+          th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+          }
+          tr:nth-child(even) {
+            background-color: #f9f9f9;
+          }
+          .table-container {
+            max-height: 10px;
+            overflow-y: scroll;
+          }
+          .artist_style1{
+            font-size: 13px;
+
+          }
+        
+
+    
+
+      
+
+          .popup1{
+            display:inline;
+            font-weight: bold;
+            font-size:10px
+          }
+        
+          .popup2{
+            display:inline;
+            font-size:10px;
+        
+          }
+        
+        .popupimg{
+            max-width:100px;
+             height:auto;
+             border-radius:auto;
+        }
+          
+  }
