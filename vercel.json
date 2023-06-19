@@ -10,5 +10,10 @@
             "src": "/(.*)",
             "dest": "MappingPoject/wsgi.py"
         }
-    ]
+    ],
+    
+    "rewrites": [
+        { "source": "/static/(.*)", "destination": "/static/$1" },
+        { "source": "/(.*)", "destination": "/$1" }
+      ]
 }
