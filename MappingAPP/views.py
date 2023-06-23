@@ -4,6 +4,9 @@ from django.views.generic import TemplateView
 # Create your views here.
 
 
+# def map(request):
+#     return render(request, 'index.html')
+
 class map(TemplateView):
         template_name ="index.html"
 
