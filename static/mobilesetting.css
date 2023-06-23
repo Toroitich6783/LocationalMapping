@@ -28,9 +28,7 @@
           
          }
 
-    
-   
-         .leftsidebar{
+    .leftsidebar{
             background-color:white;
             height: 100%;
             width: 100%;
@@ -39,7 +37,7 @@
         
             }
         
-            .rightsidebar{
+    .rightsidebar{
               background-color: #B5179E;
               width: 99%;
               float: right;
@@ -48,7 +46,7 @@
               }
              
       
-          #mapid{
+      #mapid{
                 height: 520px;
                 width: 99%;
                 
