@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Babylonia Care - Quality Tattoos!!</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <link href="static/mobilesetting.css" rel="stylesheet">
+
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="static/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="static/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="static/style.css" rel="stylesheet">
+    <link href="static/Overallstyle.css" rel="stylesheet">
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+	<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+
+  <style>
+    .labs{
+      display: inline-block;
+      width: 100px;
+    }
+  </style>
+    
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-success" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow border-top border-5 border-dark sticky-top p-0">
+      <a href="{% url 'map' %}" class="navbar-brand bg-light d-flex align-items-center px-4 px-lg-5">
+          <div class="logo-and-name">
+              <img src="static/img/v3 tran.png" alt="Company Logo">
+              <h1 class="company-name" style="margin-top:50px;">Babylonia Care</h1>
+            </div>        </a>
+      <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+          <div class="navbar-nav ms-auto p-4 p-lg-0">
+              <a href="{% url 'map' %}" class="nav-item nav-link active">Home</a>
+
+              <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
+              <a href="{% url 'service' %}" class="nav-item nav-link">Products</a>
+              <div class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Others</a>
+                  <div class="dropdown-menu fade-up m-0">
+                    <a href="{% url 'MappingClients' %}" class="dropdown-item" style="color: #B5179E">Map Clients</a>
+                    <a href="{% url 'map' %}" class="dropdown-item " style="color: #B5179E">Client Location</a>
+                    <a href="{% url 'Datamanagement' %}" class="dropdown-item" style="color: #B5179E">Data Management</a>
+                    <a href="{% url 'feature' %}" class="dropdown-item">Features</a>
+                    <a href="{% url 'team' %}" class="dropdown-item">Our Team</a>
+                    <a href="{% url 'testimonial' %}" class="dropdown-item">Testimonial</a>
+                    <!-- <a href="404.html" class="dropdown-item">404 Page</a> -->
+                      
+                  </div>
+              </div>
+              <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
+          </div>
+          <h4 class="m-0 pe-lg-5 d-none d-lg-block"> <a href="https://www.instagram.com/"><i class="fab fa-instagram text-success me-3"></i>@Babyloniacare</a></h4>
+        </div>
+  </nav>
+  <!-- Navbar End -->
+    
+    <div style="font-size: 12px;">
+      <table class="table table-dark">
+        <thead>
+          <th>sno</th>
+          <th>Name</th>
+          <th>Tier</th>
+          <th>Artist Style</th>
+          <th>Phone Number</th>
+  
+          <th>Email</th>
+          <th>Latitude</th>
+          <th>Longitude</th>
+          <th>Instagram</th>
+          <th>Facebook</th>
+  
+  
+  
+          <th>Control center</th>
+        </thead>
+        <tbody id="tbody1"></tbody>
+      </table>
+    </div>
+  
+    
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">control panel</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <label class="labs">Name:</label>
+              <input type="text"id="NameMod"><br>
+              <label class="labs">Tier:</label>
+              <input type="text"id="TierMod"><br>
+              <label class="labs">Artist Style:</label>
+              <input type="text"id="artstyleMod"><br>
+              <label class="labs">Phone Number:</label>
+              <input type="text"id="PhonuMod"><br>
+  
+              <label class="labs">Email:</label>
+              <input type="text"id="EmailMod"><br>
+              <label class="labs">Latitude:</label>
+              <input type="text"id="LatitudeMod"><br>
+              <label class="labs">Longitude:</label>
+              <input type="text"id="LongitudeMod"><br>
+              <label class="labs">Instagram:</label>
+              <input type="text"id="InstagramMod"><br>
+              <label class="labs">Facebook:</label>
+              <input type="text"id="FacebookMod"><br>
+  
+  
+  
+            </div>
+            <div class="modal-footer">
+              <button id="AddModBtn" type="button" class="btn btn-primary" onclick="AddStd()">Add New Records</button>
+              <button id="UpdModBtn" type="button" class="btn btn-success" onclick="UpdStd()">Update Records</button>
+              <button id="DelModBtn" type="button" class="btn btn-danger" onclick="DelStd()">Delete Records</button>
+            </div>
+        </div>
+      </div>
+    </div>
+  
+  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
+  
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+   
+  
+  
+  <script id="MainScript">
+      var firebaseConfig = {
+          apiKey: "AIzaSyD0asHo0qDj5zYplavVzFUsNWL1Da1e1c8",
+          authDomain: "sendinfo-9f1cb.firebaseapp.com",
+          databaseURL: "https://sendinfo-9f1cb-default-rtdb.firebaseio.com",
+          projectId: "sendinfo-9f1cb",
+          storageBucket: "sendinfo-9f1cb.appspot.com",
+          messagingSenderId: "842821060420",
+          appId: "1:842821060420:web:47008a44a86e78be69b911"
+        };
+      firebase.initializeApp(firebaseConfig);
+  
+      var studentNo;
+      function Select_AllData() {
+          document.getElementById('tbody1').innerHTML="";
+          studentNo = 0;
+          firebase.database().ref('contactForm').once('value', function (snapshot){
+              snapshot.forEach(function (childSnapshot) {
+                  var name2 = childSnapshot.val().name; 
+                  var Tier2 = childSnapshot.val().Tiers1;
+                  var Artist_Style2=childSnapshot.val().Artist_sytle1;
+                  var Phone_Number2= childSnapshot.val().Phone_Number1;
+  
+                  var Email2 = childSnapshot.val().email; 
+                  var Latitude2 = childSnapshot.val().latitude1;
+                  var Longitude2=childSnapshot.val().longitude1;
+                  var Instagram2= childSnapshot.val().Instagram1;
+                  var Facebook2= childSnapshot.val().Facebook1;
+                  AddItemTOTABLE(name2, Tier2, Artist_Style2, Phone_Number2,Email2,Latitude2,Longitude2,Instagram2,Facebook2);
+          });
+          
+          });
+          
+          }
+          window.onload = Select_AllData;
+  
+  
+  
+  
+          var stdList=[];
+  
+          function AddItemTOTABLE(name, Tier, Artist_Style,Phone_Number,Email,Latitude,Longitude,Instagram,Facebook){
+              var tbody = document.getElementById('tbody1');
+              var trow = document.createElement('tr');
+              var td1 = document.createElement('td');
+              var td2 = document.createElement('td');
+              var td3 = document.createElement('td');
+              var td4 = document.createElement('td');
+              var td5 = document.createElement('td');
+  
+              var td6 = document.createElement('td');
+              var td7 = document.createElement('td');
+              var td8 = document.createElement('td');
+              var td9 = document.createElement('td');
+              var td10 = document.createElement('td');
+  
+  
+  
+  
+              stdList.push([name,Tier,Artist_Style,Phone_Number,Email,Latitude,Longitude,Instagram,Facebook]);
+              td1.innerHTML = ++studentNo;
+              td2.innerHTML = name;
+              td3.innerHTML = Tier;
+              td4.innerHTML = Artist_Style;
+              td5.innerHTML = Phone_Number;
+  
+              td6.innerHTML = Email;
+              td7.innerHTML = Latitude;
+              td8.innerHTML = Longitude;
+              td9.innerHTML = Instagram;
+              td10.innerHTML = Facebook;
+  
+  
+              trow.appendChild(td1)
+              trow.appendChild(td2)
+              trow.appendChild(td3)
+              trow.appendChild(td4)
+              trow.appendChild(td5)
+  
+              trow.appendChild(td6)
+              trow.appendChild(td7)
+              trow.appendChild(td8)
+              trow.appendChild(td9)
+              trow.appendChild(td10)
+  
+              var ControlDiv= document.createElement("div");
+              ControlDiv.innerHTML ='<button type="button" style="font-size: 10px;" class="btn btn-success my-2" data-toggle="modal" data-target="#exampleModalCenter" onclick="FillTboxes(null)">Add New record</button>'
+              ControlDiv.innerHTML +='<button type="button" style=" font-size: 10px;" class="btn btn-primary my-2 ml-2" data-toggle="modal" data-target="#exampleModalCenter" onclick="FillTboxes('+studentNo+')">Edit record</button>'
+              
+              trow.appendChild(ControlDiv)
+              tbody.appendChild(trow);
+          
+          }
+          var ModName=document.getElementById('NameMod');
+          var ModTier=document.getElementById('TierMod');
+          var ModArtist_Style=document.getElementById('artstyleMod');
+          var ModPhone_Number=document.getElementById('PhonuMod');
+  
+  
+          var ModEmail=document.getElementById('EmailMod');
+          var ModLatitude=document.getElementById('LatitudeMod');
+          var ModLongitude=document.getElementById('LongitudeMod');
+          var ModInstagram=document.getElementById('InstagramMod');
+          var ModFacebook=document.getElementById('FacebookMod');
+  
+  
+          var BTNmodAdd = document.getElementById("AddModBtn")
+          var BTNmodUpd = document.getElementById("UpdModBtn")
+          var BTNmodDel = document.getElementById("DelModBtn")
+          
+          function FillTboxes(index){
+              if(index==null){
+                  ModName.value = "";
+                  ModTier.value = "";
+                  ModArtist_Style.value = "";
+                  ModPhone_Number.value = "";
+  
+  
+                  ModEmail.value = "";
+                  ModLatitude.value = "";
+                  ModLongitude.value = "";
+                  ModInstagram.value = "";
+                  ModFacebook.value = "";
+  
+  
+                  BTNmodAdd.style.display='inline-block'
+                  BTNmodUpd.style.display='none'
+                  BTNmodDel.style.display='none' 
+              }
+              
+              else{
+                  --index;
+                  ModName.value = stdList[index][0];
+                  ModTier.value = stdList[index][1];
+                  ModArtist_Style.value = stdList[index][2];
+                  ModPhone_Number.value = stdList[index][3];
+  
+                  ModEmail.value = stdList[index][4];
+                  ModLatitude.value = stdList[index][5];
+                  ModLongitude.value = stdList[index][6];
+                  ModInstagram.value = stdList[index][7];
+                  ModFacebook.value = stdList[index][8];
+  
+  
+  
+                  ModTier.disabled=true;
+                  BTNmodAdd.style.display='none'
+                  BTNmodUpd.style.display='inline-block'
+                  BTNmodDel.style.display='inline-block'
+              }
+          }
+          
+          function AddStd(){
+              firebase.database().ref('contactForm/'+ModTier.value).set(
+                  {
+                      name: ModName.value,
+                      Tiers1: ModTier.value,
+                      Artist_sytle1: ModArtist_Style.value,
+                      Phone_Number1: ModPhone_Number.value,
+                      
+                      email: ModEmail.value,
+                      latitude1: ModLatitude.value,
+                      longitude1: ModLongitude.value,
+                      Instagram1: ModInstagram.value,
+                      Facebook1: ModFacebook.value,
+  
+                  },
+                  (error)=>{
+                    if(error){
+                      alert("record was not added, there was some problem")
+                    }
+                    else{
+                      alert("record was added");
+                      Select_AllData();
+                      $("#exampleModalCenter").modal('hide');
+                    }
+                  }
+                  )
+      }
+  
+      function UpdStd(){
+          firebase.database().ref('contactForm/'+ModTier.value).update(
+              {
+                  name: ModName.value,
+                  Artist_sytle1: ModArtist_Style.value,
+                  Phone_Number1: ModPhone_Number.value,
+                  
+                  email: ModEmail.value,
+                  latitude1: ModLatitude.value,
+                  longitude1: ModLongitude.value,
+                  Instagram1: ModInstagram.value,
+                  Facebook1: ModFacebook.value,
+              },
+              (error)=>{
+                  if(error){
+          alert("record was not updated, there was some problem")
+      }
+      else{
+          alert("record was updated");
+          Select_AllData();
+          $("#exampleModalCenter").modal('hide');
+        }
+       }
+      )
+    }
+    function DelStd(){
+      firebase.database().ref('contactForm/'+ModTier.value).remove().then(
+        function(){
+          alert("Record was deleted")
+          Select_AllData();
+          $("#exampleModalCenter").modal('hide');
+    
+        }
+      )
+    
+    }
+  </script>
+      <!-- JavaScript Libraries -->
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="static/lib/wow/wow.min.js"></script>
+      <script src="static/lib/easing/easing.min.js"></script>
+      <script src="static/lib/waypoints/waypoints.min.js"></script>
+      <script src="static/lib/counterup/counterup.min.js"></script>
+      <script src="static/lib/owlcarousel/owl.carousel.min.js"></script>
+  
+      <!-- Template Javascript -->
+      <script src="static/js/main.js"></script>
+</body>
+
+</html>
