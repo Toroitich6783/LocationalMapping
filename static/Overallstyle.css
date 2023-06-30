@@ -27,6 +27,23 @@
           z-index: 0; /* Set the z-index of the map */
           
           }
+
+          .leftsidebar1{
+            background-color: white;
+            height: 810px;
+            width: 16%;
+            }
+      
+      
+            .rightsidebar1{
+                background-color: none;
+                height: 810px;
+                width: 84%;
+                float: right;
+                z-index: 0; /* Set the z-index of the map */
+                
+                }
+              
         
           
           .inputBox{

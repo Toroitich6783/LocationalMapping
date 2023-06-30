@@ -105,11 +105,11 @@
           <div class="text">Please enter your email and password</div>
           <form onsubmit="login(event)" id="form_sign_in" style="height:300px">
               <div class="form_input">
-                  <p><label for="email">Email</label></p>
+                  {% comment %} <p><label for="email">Email</label></p> {% endcomment %}
                   <input type="text" name="" placeholder="Email" id="email" required>
               </div>
               <div class="form_input">
-                  <p><label for="password">Password</label></p>
+                  {% comment %} <p><label for="password">Password</label></p> {% endcomment %}
                   <input type="password" name="" placeholder="Password" id="password" required>
                   <div class="buttons">
                       <button id="btn_sign_in">Log In</button>
@@ -191,7 +191,7 @@
       }
 
       function continueToDashboard() {
-          window.location.href = "MappingClients.html";
+          window.location.href = "{% url 'MappingClients' %}";
       }
 
       function showError(message) {
